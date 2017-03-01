@@ -12,7 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <!-- Scripts -->
     <script>
         window.Laravel = {!! json_encode([
@@ -23,7 +23,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="navbar-header">
 
                     <!-- Collapsed Hamburger -->
@@ -43,7 +43,22 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        @if (!Auth::guest() )
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                              kategorie <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="{{ url('/post-category')}}">Zobacz</a>
+                                </li>
+                                <li>
+                                    <a href="{{url('/post-category/add')}}">Dodaj</a>
+                                </li>
+                            </ul>
+                        </li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -78,11 +93,35 @@
             </div>
         </nav>
 
-        @yield('content')
+        <div class="container-fluid" style="padding-top:50px;">
+          <!-- your page content -->
+          <div class="col-sm-12 col-md-12">
+            @include('common.flash')
+          </div>
+          <div class="col-md-12 col-sm-12">
+            @yield('content')
+          </div>
+      </div>
+
     </div>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/assets/bootstrapconfirmation/bootstrap-confirmation.min.js') }}"></script>
+    <script src="{{ URL::asset('js/confirm-bootstrap.js') }}"></script>
+
+    <script>
+        $('.delete-confirm').confirmModal({
+            confirmTitle: '{{ trans("messages.modal_confirmTitle") }}',
+            confirmMessage: '{{ trans("messages.modal_confirmMessage") }}',
+            confirmStyle: 'danger',
+            confirmCancel: '{{ trans("messages.modal_confirmCancel") }}',
+            confirmOk: '<i class="fa fa-trash"></i> {{ trans("messages.modal_confirmOK") }}',
+            confirmCallback: function (target) {
+                var link = $(target).parent().submit();
+                //window.location.href = link;
+            }
+        });
+    </script>
+    @yield('custom-js')
 </body>
 </html>

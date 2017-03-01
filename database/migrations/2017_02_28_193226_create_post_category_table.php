@@ -16,6 +16,7 @@ class CreatePostCategoryTable extends Migration
       Schema::create('post_category', function (Blueprint $table) {
           $table->increments('id');
           $table->string('name');
+          $table->string('slug');
           $table->timestamps();
       });
     }

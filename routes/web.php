@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/post-category', 'PostCategoryController@index');
+Route::get('/post-category/add', 'PostCategoryController@create');
+Route::post('/post-category/store', 'PostCategoryController@store');
+Route::get('/post-category/edit/{id}', 'PostCategoryController@edit')->name('cpost.edit');
+Route::post('/post-category/{id}/update', 'PostCategoryController@update');
+Route::delete('/post-category/delete/{cpost}', 'PostCategoryController@destroy');
