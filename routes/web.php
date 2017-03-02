@@ -24,3 +24,6 @@ Route::post('/post-category/store', 'PostCategoryController@store');
 Route::get('/post-category/edit/{id}', 'PostCategoryController@edit')->name('cpost.edit');
 Route::post('/post-category/{id}/update', 'PostCategoryController@update');
 Route::delete('/post-category/delete/{cpost}', 'PostCategoryController@destroy');
+
+
+Route::get('/posts', 'PostController@index');

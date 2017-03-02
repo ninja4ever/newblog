@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Post;
 
 class PostCategory extends Model
 {
@@ -14,4 +15,8 @@ class PostCategory extends Model
     protected $table = 'post_category';
 
     protected $guarded = array();
+
+    public function posts(){
+      return $this->hasMany(Post::class);
+    }
 }
