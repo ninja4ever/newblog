@@ -19,7 +19,7 @@ class PostsTableSeeder extends Seeder
         $posts = [];
         $faker = Factory::create();
         $image = 'post_image_';
-        for($i = 1; $i<= 10; $i++){
+        for($i = 1; $i<= 20; $i++){
           $posts[]=[
             'user_id'=> 1,
             'title'=>$faker->sentence(rand(8,12)),
@@ -30,7 +30,7 @@ class PostsTableSeeder extends Seeder
             'created_at'=> date('Y-m-d H:i:s'),
             'updated_at'=> date('Y-m-d H:i:s'),
             'category'=> 1,
-            'active'=> 1,
+            'active'=> rand(0,1),
 
           ];
         }

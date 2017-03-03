@@ -47,3 +47,17 @@
 	*/
 	#no-more-tables td:before { content: attr(data-title); }
 }
+
+
+#image-preview{
+	display: block;
+	max-width: 100%;
+}
+.file_out_wrapper{
+	background-color:white;
+	border-radius:4px;
+	height:38px;
+	line-height:38px;
+	padding: 0 8px;
+	margin-bottom:10px;
+}

@@ -17,7 +17,7 @@
                 <th>{{trans('messages.posts_table_header_post_create_date')}}</th>
                 <th>{{trans('messages.posts_table_header_post_slug')}}</th>
                 <th>{{trans('messages.posts_table_header_post_category')}}</th>
-                <th>{{trans('messages.posts_table_header_task_actions')}}</th>
+                <th>{{trans('messages.posts_table_header_post_actions')}}</th>
             </thead>
             <!-- Table Body -->
             <tbody>
@@ -42,7 +42,7 @@
                              <ul class="list-inline">
                                <li>
                                  @if ($post->active != 1)
-                          <form action="#" method="POST">
+                          <form action="{{url('/post/publish/'.$post->id)}}" method="POST">
                               {{ csrf_field() }}
                               <input type="hidden" name="active" value="1">
                               <button type="submit" class="btn btn-success">

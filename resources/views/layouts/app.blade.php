@@ -68,7 +68,7 @@
                                     <a href="{{ url('/posts')}}">Zobacz</a>
                                 </li>
                                 <li>
-                                    <a href="#">Dodaj</a>
+                                    <a href="{{url('/post/add')}}">Dodaj</a>
                                 </li>
                             </ul>
                         </li>
@@ -121,19 +121,36 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ URL::asset('js/confirm-bootstrap.js') }}"></script>
+  {{--  <script src="{{ URL::asset('js/confirm-bootstrap.js') }}"></script> --}}
+    {{Html::script('js/jquery.confirm.min.js')}}
 
     <script>
-        $('.delete-confirm').confirmModal({
-            confirmTitle: '{{ trans("messages.modal_confirmTitle") }}',
-            confirmMessage: '{{ trans("messages.modal_confirmMessage") }}',
-            confirmStyle: 'danger',
-            confirmCancel: '{{ trans("messages.modal_confirmCancel") }}',
-            confirmOk: '<i class="fa fa-trash"></i> {{ trans("messages.modal_confirmOK") }}',
-            confirmCallback: function (target) {
-                var link = $(target).parent().submit();
-                //window.location.href = link;
-            }
+        // $('.delete-confirm').confirmModal({
+        //     confirmTitle: '{{ trans("messages.modal_confirmTitle") }}',
+        //     confirmMessage: '{{ trans("messages.modal_confirmMessage") }}',
+        //     confirmStyle: 'danger',
+        //     confirmCancel: '{{ trans("messages.modal_confirmCancel") }}',
+        //     confirmOk: '<i class="fa fa-trash"></i> {{ trans("messages.modal_confirmOK") }}',
+        //     confirmCallback: function (target) {
+        //         var link = $(target).parent().submit();
+        //         //window.location.href = link;
+        //     }
+        // });
+        $(".delete-confirm").confirm({
+            text: "Czy na pewno usunąć ?",
+            title: "Usuwanie",
+            confirm: function(target) {
+               var link = $(target).parent().submit();
+            },
+            cancel: function(target) {
+                // nothing to do
+            },
+            confirmButton: '<i class="fa fa-trash"></i> OK',
+            cancelButton: "Anuluj",
+            post: true,
+            confirmButtonClass: "btn-danger",
+            cancelButtonClass: "btn-default",
+            dialogClass: "modal-dialog" // Bootstrap classes for large modal
         });
     </script>
     @yield('custom-js')

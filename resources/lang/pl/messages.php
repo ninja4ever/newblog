@@ -44,6 +44,7 @@ return [
     'post_post_category_label'=>'Kategoria postu',
     'post_post_category_select_none_label'=>'Wybierz kategorię postu',
     'post_post_category_select_none'=>'bez kategorii',
+    'post_post_image_label' => 'Obrazek',
     'post_select_n_active'=>'Nieopublikowany',
     'post_select_active'=>'Opublikowany',
     'post_choose_one'=>'Wybierz status',

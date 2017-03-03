@@ -8,6 +8,7 @@ use App\PostCategory;
 
 class Post extends Model
 {
+  protected $guarded = array();
   /**
    * Get the user that owns the posts
    */

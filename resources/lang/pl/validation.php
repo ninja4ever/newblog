@@ -38,7 +38,7 @@ return [
     'email'                => 'Pole :attribute musi być poprawnym adresem email.',
     'exists'               => 'Wybrany Pole :attribute jest nieprawidłowy.',
     'filled'               => 'Pole :attribute jest wymagane.',
-    'image'                => 'Pole :attribute muzi byc obrazkiem.',
+    'image'                => 'Pole :attribute musi byc obrazkiem.',
     'in'                   => 'Wybrany Pole :attribute jest nieprawidłowy.',
     'in_array'             => 'Pole :attribute  nie istnieje w  :other.',
     'integer'              => 'Pole :attribute musi być liczbą całkowitą.',
