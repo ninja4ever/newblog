@@ -180,7 +180,7 @@ class PostController extends Controller
 
         $post->update();
 
-       \Session::flash('alert-success', trans('messages.post_update_message_success'));
+       \Session::flash('alert-success', trans('messages.post_update_message_success_update'));
        return redirect('/posts');
     }
 

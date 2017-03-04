@@ -61,6 +61,7 @@ return [
     'post_edit_btn'=>'Edycja',
     'post_delete_btn'=>'Usuń',
     'post_update_message_success'=>'Aktualizacja statusu postu zakończona sukcesem',
+    'post_update_message_success_update'=>'Aktualizacja postu zakończona sukcesem',
     'post_message_delete'=>'Usunięcie postu zakończone sukcesem',
     'post_add_message_success'=>'Dodanie postu zakończone sukcesem',
     'post_add_message_warning'=>'Wystąpiły błędy przy dodaniu postu',
