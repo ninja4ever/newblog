@@ -54,7 +54,7 @@
                           @endif
                         </li>
                         <li>
-                          <form action="#" method="GET">
+                          <form action="{{url('/post/edit/'.$post->id)}}" method="GET">
                               <button type="submit" class="btn btn-warning">
                                   <i class="fa fa-pencil"></i> {{trans('messages.post_edit_btn')}}
                               </button>

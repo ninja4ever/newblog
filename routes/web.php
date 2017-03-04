@@ -29,5 +29,7 @@ Route::delete('/post-category/delete/{cpost}', 'PostCategoryController@destroy')
 Route::get('/posts', 'PostController@index');
 Route::get('/post/add', 'PostController@create');
 Route::post('/post/store', 'PostController@store');
+Route::get('/post/edit/{post}', 'PostController@edit');
+Route::patch('/post/update/{id}', 'PostController@update');
 Route::delete('/post/delete/{post}', 'PostController@destroy');
 Route::post('/post/publish/{post}', 'PostController@publicPost');
