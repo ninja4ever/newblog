@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
@@ -46,10 +46,18 @@
                         @if (!Auth::guest() )
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                              kategorie <span class="caret"></span>
+                              Blog <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
+                              <li class="dropdown-header">Wpisy</li>
+                              <li>
+                                  <a href="{{ url('/posts')}}">Zobacz</a>
+                              </li>
+                              <li>
+                                  <a href="{{url('/post/add')}}">Dodaj</a>
+                              </li>
+                              <li class="dropdown-header">Kategorie</li>
                                 <li>
                                     <a href="{{ url('/post-category')}}">Zobacz</a>
                                 </li>
@@ -58,21 +66,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                              wpisy <span class="caret"></span>
-                            </a>
-
-                            <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a href="{{ url('/posts')}}">Zobacz</a>
-                                </li>
-                                <li>
-                                    <a href="{{url('/post/add')}}">Dodaj</a>
-                                </li>
-                            </ul>
-                        </li>
-                        @endif
+                      @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
