@@ -67,3 +67,9 @@ body{
 	padding: 0 8px;
 	margin-bottom:10px;
 }
+.list-inline{
+	margin: 0;
+}
+.list-inline button{
+	margin-bottom: 5px;
+}
