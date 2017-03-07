@@ -198,7 +198,7 @@ class PostController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * publish the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -208,7 +208,7 @@ class PostController extends Controller
       $post->active = $request->input('active');
       $post->updated_at = date('Y-m-d H:i:s');
       $post->update();
-      \Session::flash('alert-success', trans('messages.post_success_message_update'));
+      \Session::flash('alert-success', trans('messages.post_update_message_success'));
       return redirect('/posts');
     }
 

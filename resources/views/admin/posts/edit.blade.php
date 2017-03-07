@@ -1,7 +1,5 @@
 @extends('layouts.app')
-@section('menuitem-post')
-active
-@endsection
+
 @section('content')
 <div class="panel panel-default">
     <div class="panel-heading">{{trans('messages.post_panel_title')}}</div>
@@ -120,6 +118,7 @@ function readURL(input) {
     selector: 'textarea',
     height: 300,
     language: 'pl',
+    forced_root_block : "",
     invalid_elements : "p, script",
     plugins: [
       'advlist autolink lists link image charmap print preview anchor',

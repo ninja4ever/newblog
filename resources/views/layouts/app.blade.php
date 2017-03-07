@@ -74,10 +74,10 @@
                             <ul class="dropdown-menu" role="menu">
                               <li class="dropdown-header">strony</li>
                               <li>
-                                  <a href="#">Zobacz</a>
+                                  <a href="{{url('/pages')}}">Zobacz</a>
                               </li>
                               <li>
-                                  <a href="#">Dodaj</a>
+                                  <a href="{{url('/pages/add')}}">Dodaj</a>
                               </li>
 
                             </ul>

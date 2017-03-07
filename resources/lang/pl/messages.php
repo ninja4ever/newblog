@@ -67,5 +67,36 @@ return [
     'post_add_message_warning'=>'Wystąpiły błędy przy dodaniu postu',
     'post_message_delete'=>'Usunięcie postu zakończone sukcesem',
 
+    //page page
+    'page_panel_title'=>'Dodanie nowej strony',
+    'page_title_label'=>'Tytuł strony',
+    'page_slug_label'=>'Link strony',
+    'page_body_label'=>'Treść strony',
+    'page_status'=>'Status strony',
+    'page_page_category_label'=>'Kategoria strony',
+
+    'page_page_image_label' => 'Obrazek',
+    'page_select_n_active'=>'Nieopublikowany',
+    'page_select_active'=>'Opublikowany',
+    'page_choose_one'=>'Wybierz status',
+    'page_save_btn'=>'Zapisz',
+    'pages_panel_title'=>'Posty',
+    'pages_table_header_page_lp'=>'Lp.',
+    'pages_table_header_page_title'=>'Tytuł',
+    'pages_table_header_page_slug'=>'Link',
+    'pages_table_header_page_category'=>'Katgoria',
+    'pages_table_header_page_actions' => 'Akcje',
+    'pages_table_header_page_create_date' => 'Data utworzenia',
+    'page_active_btn'=>'Opublikuj',
+    'page_active_btn_done'=>'Opublikowany',
+    'page_edit_btn'=>'Edycja',
+    'page_delete_btn'=>'Usuń',
+    'page_update_message_success'=>'Aktualizacja statusu strony zakończona sukcesem',
+    'page_update_message_success_update'=>'Aktualizacja strony zakończona sukcesem',
+    'page_message_delete'=>'Usunięcie strony zakończone sukcesem',
+    'page_add_message_success'=>'Dodanie strony zakończone sukcesem',
+    'page_add_message_warning'=>'Wystąpiły błędy przy dodaniu strony',
+    'page_message_delete'=>'Usunięcie postu zakończone sukcesem',
+
 
 ];

@@ -1,7 +1,5 @@
 @extends('layouts.app')
-@section('menuitem-post')
-active
-@endsection
+
 @section('content')
 <div class="panel panel-default">
     <div class="panel-heading">{{trans('messages.post_panel_title')}}</div>
@@ -119,6 +117,7 @@ function readURL(input) {
   tinymce.init({
     selector: 'textarea',
     height: 300,
+    forced_root_block : "",
     language: 'pl',
     plugins: [
       'advlist autolink lists link image charmap print preview anchor',

@@ -33,3 +33,12 @@ Route::get('/post/edit/{post}', 'PostController@edit');
 Route::patch('/post/update/{id}', 'PostController@update');
 Route::delete('/post/delete/{post}', 'PostController@destroy');
 Route::post('/post/publish/{post}', 'PostController@publicPost');
+
+
+Route::get('/pages', 'PageController@index');
+Route::get('/pages/add', 'PageController@create');
+Route::post('/pages/store', 'PageController@store');
+Route::get('/pages/edit/{page}', 'PageController@edit');
+Route::patch('/pages/update/{id}', 'PageController@update');
+Route::delete('/pages/delete/{page}', 'PageController@destroy');
+Route::post('/pages/publish/{page}', 'PageController@publishPage');
