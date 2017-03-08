@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\User;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -35,5 +37,14 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'logout']);
+    }
+
+    protected function authenticated(Request $request,User $user)
+    {
+      if($user->active == 0){
+          \Auth::logout();
+          \Session::flash('alert-warning', 'account deactivated');
+         return redirect('/login');
+      }
     }
 }
