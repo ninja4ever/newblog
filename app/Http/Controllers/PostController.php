@@ -11,6 +11,29 @@ use File;
 
 class PostController extends Controller
 {
+    private $messages = [
+       'title.required' => 'Pole tytułu jest wymagane',
+       'title.unique' => 'Tytuł postu jest już w bazie',
+       'title.max'=>'Tytuł nie może przkroczyć :max znaków',
+       'body.required'=>'Pole wymagane',
+       'slug.required'=>'Pole linku jest wymagane',
+       'slug.unique'=>'Pole linku musi byc unikalne',
+       'slug.max'=>'Pole linku nie może przkroczyć :max znaków',
+       'active.required'=>'Zaznaczenie pola jest wymagane',
+       'category.required'=>'Zaznaczenie pola kategorii jest wymagane',
+       'image.required' => 'Obrazek obiektu jest wymagany',
+        'image.mimes' => 'Dozwolone są tylko pliki jpeg, jpg, png',
+        'image.max' => 'Maksymalny rozmiar pliku to :max kb',
+     ];
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -41,24 +64,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $image = $request->image;
-
-
-        $messages = [
-         'title.required' => 'Pole tytułu jest wymagane',
-         'title.unique' => 'Tytuł postu jest już w bazie',
-         'title.max'=>'Tytuł nie może przkroczyć :max znaków',
-         'body.required'=>'Pole wymagane',
-         'slug.required'=>'Pole linku jest wymagane',
-         'slug.unique'=>'Pole linku musi byc unikalne',
-         'slug.max'=>'Pole linku nie może przkroczyć :max znaków',
-         'active.required'=>'Zaznaczenie pola jest wymagane',
-         'category.required'=>'Zaznaczenie pola kategorii jest wymagane',
-         'image.required' => 'Obrazek obiektu jest wymagany',
-          'image.mimes' => 'Dozwolone są tylko pliki jpeg, jpg, png',
-          'image.max' => 'Maksymalny rozmiar pliku to :max kb',
-       ];
-
+       $image = $request->image;
        $validator = Validator::make($request->all(), [
          'title' => 'required|unique:posts|max:255',
          'body' => 'required',
@@ -66,7 +72,7 @@ class PostController extends Controller
          'active'=>'required|in:0,1',
          'category'=> 'required',
          'image'=> 'nullable|image|mimes:jpeg,png,jpg|max:1500',
-       ], $messages);
+       ], $this->messages);
        if ($validator->fails()) {
          \Session::flash('alert-warning', trans('messages.post_add_message_warning'));
            return redirect('/post/add')
@@ -128,39 +134,23 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
 
-        $post = Post::find($id);
-        $image = $request->image;
+      $post = Post::find($id);
+      $image = $request->image;
 
-
-        $messages = [
-         'title.required' => 'Pole tytułu jest wymagane',
-         'title.unique' => 'Tytuł postu jest już w bazie',
-         'title.max'=>'Tytuł nie może przkroczyć :max znaków',
-         'body.required'=>'Pole wymagane',
-         'slug.required'=>'Pole linku jest wymagane',
-         'slug.unique'=>'Pole linku musi byc unikalne',
-         'slug.max'=>'Pole linku nie może przkroczyć :max znaków',
-         'active.required'=>'Zaznaczenie pola jest wymagane',
-         'category.required'=>'Zaznaczenie pola kategorii jest wymagane',
-         'image.required' => 'Obrazek obiektu jest wymagany',
-          'image.mimes' => 'Dozwolone są tylko pliki jpeg, jpg, png',
-          'image.max' => 'Maksymalny rozmiar pliku to :max kb',
-       ];
-
-       $validator = Validator::make($request->all(), [
+      $validator = Validator::make($request->all(), [
          'title' => 'required|unique:posts,id,'.$post->id.'|max:255',
          'body' => 'required',
          'slug'=>'required|unique:posts,id,'.$post->id.'|max:255',
          'active'=>'required|in:0,1',
          'category'=> 'required',
          'image'=> 'nullable|image|mimes:jpeg,png,jpg|max:1500',
-       ], $messages);
-       if ($validator->fails()) {
+       ], $this->messages);
+      if ($validator->fails()) {
          \Session::flash('alert-warning', trans('messages.post_add_message_warning'));
            return redirect('/post/edit/'.$id)
                ->withInput()
                ->withErrors($validator);
-       }
+      }
        $fileName = '';
        if($image){
          $extension = $image->getClientOriginalExtension(); // getting image extension
@@ -169,14 +159,13 @@ class PostController extends Controller
          $post->image = $fileName;
        }
 
-
-         $post->title = $request->title;
-         $post->body = $request->body;
-         $post->updated_at = date('Y-m-d H:i:s');
-         $post->slug = str_slug($request->slug, '-');
-         $post->category = $request->category;
-         $post->excerpt = Str::words($request->body);
-         $post->active = $request->active;
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->updated_at = date('Y-m-d H:i:s');
+        $post->slug = str_slug($request->slug, '-');
+        $post->category = $request->category;
+        $post->excerpt = Str::words($request->body);
+        $post->active = $request->active;
 
         $post->update();
 

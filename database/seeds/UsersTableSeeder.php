@@ -17,8 +17,23 @@ class UsersTableSeeder extends Seeder
           'email' => 'admin@admin.pl',
           'password' => bcrypt('temp123'),
           'active' => 1,
+          'role'=> 1,
           'created_at'=>$date,
           'updated_at'=>$date
       ]);
+      $users = [];
+      for($i = 0; $i< 5; $i++){
+        $date = date('Y-m-d H:i:s');
+        $users[] = [
+          'name' => 'admin'.$i,
+          'email' => 'admin'.$i.'@admin.pl',
+          'password' => bcrypt('temp123'),
+          'active' => rand(0,1),
+          'role'=> rand(0,1),
+          'created_at'=>$date,
+          'updated_at'=>$date
+        ];
+      }
+      DB::table('users')->insert($users);
     }
 }

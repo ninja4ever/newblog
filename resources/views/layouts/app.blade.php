@@ -103,7 +103,7 @@
                                       <a href="#">ustawnienia</a>
                                   </li>
                                   <li>
-                                      <a href="#">użytkownicy</a>
+                                      <a href="{{url('/users')}}">użytkownicy</a>
                                   </li>
                                   <li>
                                       <a href="#">profil</a>

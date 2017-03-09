@@ -42,3 +42,10 @@ Route::get('/pages/edit/{page}', 'PageController@edit');
 Route::patch('/pages/update/{id}', 'PageController@update');
 Route::delete('/pages/delete/{page}', 'PageController@destroy');
 Route::post('/pages/publish/{page}', 'PageController@publishPage');
+
+
+Route::get('/users', 'UserController@index');
+Route::get('/users/add', 'UserController@create');
+
+Route::patch('/users/change-status/{user}', 'UserController@changeStatus');
+Route::delete('/users/delete/{user}', 'UserController@destroy');

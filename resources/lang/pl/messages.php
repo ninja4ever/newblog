@@ -99,4 +99,38 @@ return [
     'page_message_delete'=>'Usunięcie postu zakończone sukcesem',
 
 
+    //users page
+    'user_panel_title_add'=>'Dodanie użytkownika',
+    'user_name_label'=>'Nazwa użytkownika',
+    'user_email_label'=>'Email użytkownika',
+    'user_password_label'=>'Hasło użytkownika',
+    'user_password_confirm_label'=>'Potwierdź hasło użytkownika',
+    'user_active_label'=>'Status użytkownika',
+    'user_role_label'=>'Rola użytkownika',
+    'user_select_admin'=>'Administrator',
+    'user_select_user'=>'Użytkownik',
+    'user_choose_one_role'=>'Wybierz rolę użytkownika',
+    'user_select_active'=>'Aktywny',
+    'user_select_not_active'=>'Nieaktywny',
+    'user_choose_one_active'=>'Wybierz aktywność użytkownika',
+    'user_register_btn'=>'Zapisz użytkownika',
+    'user_panel_title'=>'Aktualni użytkownicy',
+    'user_table_header_lp'=>'Lp.',
+    'user_table_header_username'=>'Nazwa użytkownika',
+    'user_table_header_user_active'=>'Status',
+    'user_table_header_user_role'=>'Rola',
+    'user_table_header_actions'=>'Akcje',
+    'user_active'=>'Aktywny',
+    'user_inactive'=>'Nie aktywny',
+    'user_role_admin'=>'Administrator',
+    'user_role_user'=>'Użytkownik',
+    'user_btn_delete'=>'Usuń',
+    'user_btn_deleted'=>'Zablokowane',
+    'user_message_success_delete'=>'Usunięcie użytkownika zakończone sukcesem',
+    'user_message_change_pass_warning'=>'Wystapiły błędy przy zmianie hasła',
+    'user_message_change_pass_success'=>'Zmiana hasła poprawna',
+    'user_message_change_status_success'=>'Status użytkownika zmieniony.',
+    'user_message_change_status_error'=>'Wystąpił błąd przy zmianie statusu.',
+
+
 ];

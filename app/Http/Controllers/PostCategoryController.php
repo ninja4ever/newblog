@@ -9,9 +9,19 @@ use Validator;
 class PostCategoryController extends Controller
 {
 
-    public function __construct(){
-
-      $this->middleware('auth');
+    private $messages = [
+      'name.required'=>'Nazwa kategorii postów jest wymagana.',
+      'name.max'=>'Maksymalna długość nazwy kategorii postów to :max znaków.',
+      'name.min'=>'Minimalna długość nazwy kategorii postów to :min znaków.',
+    ];
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
     /**
      * Display a listing of the resource.
@@ -42,14 +52,10 @@ class PostCategoryController extends Controller
      */
     public function store(Request $request)
     {
-      $messages = [
-        'name.required'=>'Nazwa kategorii postów jest wymagana.',
-        'name.max'=>'Maksymalna długość nazwy kategorii postów to :max znaków.',
-        'name.min'=>'Minimalna długość nazwy kategorii postów to :min znaków.',
-      ];
+
       $validator = Validator::make($request->all(), [
         'name' => 'required|min:1,max:255',
-      ], $messages);
+      ], $this->messages);
 
       if ($validator->fails()) {
         \Session::flash('alert-warning', trans('messages.post_category_warning_message'));
@@ -86,7 +92,6 @@ class PostCategoryController extends Controller
     public function edit($id)
     {
       $cpost = PostCategory::find($id);
-
       return view('admin.post_category.edit', ['cpost' => $cpost]);
     }
 
@@ -101,14 +106,9 @@ class PostCategoryController extends Controller
     {
       $cpost = PostCategory::find($id);
 
-      $messages = [
-        'name.required'=>'Nazwa kategorii postu jest wymagana.',
-        'name.max'=>'Maksymalna długość nazwy kategorii postów to :max znaków.',
-        'name.min'=>'Minimalna długość nazwy kategorii postów to :min znaków.',
-      ];
       $validator = Validator::make($request->all(), [
-      'name' => 'required|min:1,max:255',
-    ], $messages);
+        'name' => 'required|min:1,max:255',
+      ], $this->messages);
 
       if ($validator->fails()) {
         \Session::flash('alert-warning', trans('messages.post_category_warning_message'));
