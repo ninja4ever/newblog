@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::paginate('/', 'FrontController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
@@ -49,3 +49,5 @@ Route::get('/users/add', 'UserController@create');
 
 Route::patch('/users/change-status/{user}', 'UserController@changeStatus');
 Route::delete('/users/delete/{user}', 'UserController@destroy');
+
+Route::get('/settings', 'SettingController@index');

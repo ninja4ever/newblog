@@ -133,4 +133,6 @@ return [
     'user_message_change_status_error'=>'Wystąpił błąd przy zmianie statusu.',
 
 
+    //settings page
+    'settings_panel_title'=>'Ustawienia',
 ];

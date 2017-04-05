@@ -100,7 +100,7 @@
                                 <ul class="dropdown-menu" role="menu">
 
                                   <li>
-                                      <a href="#">ustawnienia</a>
+                                      <a href="{{url('/settings')}}">ustawnienia</a>
                                   </li>
                                   <li>
                                       <a href="{{url('/users')}}">użytkownicy</a>

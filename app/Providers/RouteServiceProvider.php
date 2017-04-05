@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use PaginateRoute;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -21,12 +22,12 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
-    {
-        //
+     public function boot()
+     {
+         PaginateRoute::registerMacros();
 
-        parent::boot();
-    }
+         parent::boot();
+     }
 
     /**
      * Define the routes for the application.

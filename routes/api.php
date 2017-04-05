@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 
+use App\Post;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,6 +14,21 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+Route::get('/posts/{id?}', function(Request $request, $id = null){
+  if($id == null){
+    return Post::with('postcategory')->where('active', 1)->get();
+  }
+  else{
+    $post = Post::with('postcategory')->where('active', 1)->where('id', $id)->get();
+    if(sizeof($post)>0){
+      return $post;
+    }
+    else{
+      $error = ['error'=>'no post'];
+      return $error;
+    }
+  }
 });
