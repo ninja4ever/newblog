@@ -153,6 +153,7 @@ class PostController extends Controller
       }
        $fileName = '';
        if($image){
+         File::delete('uploads/posts-image/'.$post->image);
          $extension = $image->getClientOriginalExtension(); // getting image extension
          $fileName = md5(date('Y-m-d H:i:s:u')).rand(11111,99999).'.'.$extension; // renameing image
          $image->move('uploads/posts-image/', $fileName);
@@ -181,6 +182,7 @@ class PostController extends Controller
      */
     public function destroy(Request $request, Post $post)
     {
+       File::delete('uploads/posts-image/'.$post->image);
       $post->delete();
       \Session::flash('alert-success', trans('messages.post_message_delete'));
       return redirect('/posts');

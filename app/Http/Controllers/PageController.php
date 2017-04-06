@@ -146,6 +146,7 @@ class PageController extends Controller
      }
      $fileName = '';
      if($image){
+        File::delete('uploads/pages-image/'.$page->image);
        $extension = $image->getClientOriginalExtension(); // getting image extension
        $fileName = md5(date('Y-m-d H:i:s:u')).rand(11111,99999).'.'.$extension; // renameing image
        $image->move('uploads/pages-image/', $fileName);
@@ -172,6 +173,7 @@ class PageController extends Controller
      */
     public function destroy(Request $request, Page $page)
     {
+      File::delete('uploads/pages-image/'.$page->image);
       $page->delete();
       \Session::flash('alert-success', trans('messages.page_message_delete'));
       return redirect('/pages');

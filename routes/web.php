@@ -15,6 +15,8 @@
 //     return view('welcome');
 // });
 Route::paginate('/', 'FrontController@index');
+Route::paginate('/category/{slug}', 'FrontController@category');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
@@ -51,3 +53,4 @@ Route::patch('/users/change-status/{user}', 'UserController@changeStatus');
 Route::delete('/users/delete/{user}', 'UserController@destroy');
 
 Route::get('/settings', 'SettingController@index');
+Route::post('/settings/store', 'SettingController@store');

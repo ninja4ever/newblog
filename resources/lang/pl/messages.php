@@ -135,4 +135,9 @@ return [
 
     //settings page
     'settings_panel_title'=>'Ustawienia',
+    'settings_table_header_name'=> 'Nazwa',
+    'settings_table_header_value'=> 'Wartość',
+    'settings_save_btn'=>'Zapisz',
+    'settings_update_message_warning'=>'Wystąpiły błędy',
+    'settins_update_message_success_update'=>'Zapisano ustawienia',
 ];

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Setting;
+use Validator;
+use File;
 
 class SettingController extends Controller
 {
@@ -13,7 +16,8 @@ class SettingController extends Controller
      */
     public function index()
     {
-        return view('admin.settings.index');
+        $settings = Setting::all();
+        return view('admin.settings.index', compact('settings'));
     }
 
     /**
@@ -34,7 +38,45 @@ class SettingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dump($request);
+
+        $settings = $request->setting;
+        foreach ($settings as $key => $value) {
+          $setting = Setting::find($value['id']);
+          if($value['type'] == 'string'){
+            $validator = Validator::make($request->all(), [
+              'value' => 'max:255',
+            ], [
+              'value.max'=>'maksymalnie :max znaków',
+            ]);
+            if ($validator->fails()) {
+              \Session::flash('alert-warning', trans('messages.settings_update_message_warning'));
+                return redirect('/settings')
+                    ->withInput()
+                    ->withErrors($validator);
+            }
+            $setting->value = $value['value'];
+            $setting->update();
+          }
+          if($value['type'] == 'text'){
+            $setting->value = $value['value'];
+            $setting->update();
+          }
+          if($value['type'] == 'image' && $request->setting[$value['id']]['value']){
+            File::delete('uploads/settings/'.$setting->value);
+            $image = $request->setting[$value['id']]['value'];
+            if($image){
+              $extension = $image->getClientOriginalExtension(); // getting image extension
+              $fileName = md5(date('Y-m-d H:i:s:u')).rand(11111,99999).'.'.$extension; // renameing image
+              $image->move('uploads/settings/', $fileName);
+
+              $setting->value = $fileName;
+              $setting->update();
+            }
+          }
+        }
+        \Session::flash('alert-success', trans('messages.settins_update_message_success_update'));
+        return redirect('/settings');
     }
 
     /**
