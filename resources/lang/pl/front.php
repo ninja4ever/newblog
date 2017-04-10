@@ -1,6 +1,7 @@
 <?php
   return [
     'date'=>'Data:',
+    'post_read_more_btn'=>'Czytaj więcej »',
     'prev'=>'&lt; Poprzednia',
     'next'=>'Następna &gt;',
     'search_title'=>'Wyszukiwanie',

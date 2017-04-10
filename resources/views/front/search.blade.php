@@ -19,7 +19,7 @@ Mój blog
       <p>{{$post->excerpt}}</p>
       <div class="w3-row">
         <div class="w3-col m8 s12">
-          <p><a href="{{url('/'.$post->slug)}}" class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></a></p>
+          <p><a href="{{url('/'.$post->slug)}}" class="w3-button w3-padding-large w3-white w3-border"><b>{{trans('front.post_read_more_btn')}}</b></a></p>
         </div>
       </div>
     </div>
