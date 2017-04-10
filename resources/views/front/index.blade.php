@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="{{asset('css/w3.css')}}">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
   <link rel="stylesheet" href="{{ asset('css/front-custom.css') }}">
   <!-- Scripts -->
@@ -15,11 +15,7 @@
           'csrfToken' => csrf_token(),
       ]) !!};
   </script>
-  <style>
-  body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-  </style>
 <body class="w3-light-grey">
-
   <!-- HEADER -->
   @include('front.header')
   <!-- END HEADER -->

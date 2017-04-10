@@ -4,8 +4,8 @@ and is wrapped around the whole page content, except for the footer in this exam
 
 <!-- Header -->
 <header class="w3-container w3-center w3-padding-32">
-  <h1><b>MY BLOG</b></h1>
-  <p>Welcome to the blog of <span class="w3-tag">unknown</span></p>
+  <h1><b>{{$settings[0]->value}}</b></h1>
+  <p>{{$settings[1]->value}}</p>
 </header>
 
 <!-- Grid -->

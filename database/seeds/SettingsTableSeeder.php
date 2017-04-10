@@ -42,7 +42,7 @@ class SettingsTableSeeder extends Seeder
         [
           'name'=>'Zdjęcie opisu',
           'type'=>'image',
-          'value'=>'40f491fe0a85cf1d719d30718bbaa4bd52902.jpg',
+          'value'=>'default.png',
           'can_delete'=>0,
         ],
 

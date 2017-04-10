@@ -13,7 +13,7 @@ Mój blog
     <img src="{{asset('/uploads/posts-image/'.$post->image)}}" alt="" style="width:100%">
     <div class="w3-container">
       <h3><b>{{$post->title}}</b></h3>
-      <h5>{{trans('front.date')}} <span class="w3-opacity">{{Carbon\Carbon::parse($post->updated_at)->format('d.m.Y')}}</span></h5>
+      <h5>Date: <span class="w3-opacity">{{Carbon\Carbon::parse($post->updated_at)->format('d.m.Y')}}</span></h5>
     </div>
     <div class="w3-container">
       <p>{{$post->excerpt}}</p>
@@ -35,13 +35,14 @@ Mój blog
   </div>
   <hr>
 @endif
+
 <!-- PAGINATION -->
 <div class="w3-bar w3-padding">
   @if(PaginateRoute::hasPreviousPage())
-    <a class="w3-button w3-black w3-padding-large w3-margin-bottom" href="{{ PaginateRoute::previousPageUrl() }}">{{trans('front.prev')}}</a>
+    <a class="w3-button w3-black w3-padding-large w3-margin-bottom" href="{{ PaginateRoute::previousPageUrl() }}">Previous</a>
   @endif
   @if(PaginateRoute::hasNextPage($posts))
-    <a class="w3-button w3-black w3-padding-large w3-margin-bottom w3-right" href="{{ PaginateRoute::nextPageUrl($posts) }}">{{trans('front.next')}}</a>
+    <a class="w3-button w3-black w3-padding-large w3-margin-bottom w3-right" href="{{ PaginateRoute::nextPageUrl($posts) }}">Next</a>
   @endif
 </div>
 <!-- END PAGINATION -->
@@ -49,18 +50,18 @@ Mój blog
 <!-- END BLOG ENTRIES -->
 <!-- Introduction menu -->
 <div class="w3-col l4">
-<!-- About Card -->
-@include('front.common.about_partial')
-<!-- end about card -->
-<!-- search -->
-@include('front.common.search_partial')
-<!-- end search -->
-<!-- latests posts -->
-@include('front.common.latest_posts_partial')
-<!-- END latests Posts -->
-<!-- category -->
-@include('front.common.category_partial')
-<!-- end category -->
+  <!-- About Card -->
+  @include('front.common.about_partial')
+  <!-- end about card -->
+  <!-- search -->
+  @include('front.common.search_partial')
+  <!-- end search -->
+  <!-- latests posts -->
+  @include('front.common.latest_posts_partial')
+  <!-- END latests Posts -->
+  <!-- category -->
+  @include('front.common.category_partial')
+  <!-- end category -->
 <!-- END Introduction Menu -->
 </div>
 
