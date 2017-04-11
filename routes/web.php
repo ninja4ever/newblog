@@ -16,7 +16,7 @@
 // });
 Route::paginate('/', 'FrontController@index');
 Route::paginate('/category/{slug}', 'FrontController@category');
-Route::get('/{slug}', 'FrontController@single');
+Route::get('/blog-page/{slug}', 'FrontController@single');
 Route::post('/search', 'FrontController@search');
 Route::paginate('/search-result/{keyword}', 'FrontController@search_result');
 

@@ -10,12 +10,12 @@ Mój blog
         @foreach($posts as $post)
         <!-- Blog entry -->
         <div class="w3-card-4 w3-margin w3-white">
-            <a href="{{url('/'.$post->slug)}}" style="text-decoration:none;">
+            <a href="{{url('/blog-page/'.$post->slug)}}" style="text-decoration:none;">
                 <img src="{{asset('/uploads/posts-image/'.$post->image)}}" alt="" style="width:100%">
             </a>
             <div class="w3-container">
                 <h3>
-                    <a href="{{url('/'.$post->slug)}}" style="text-decoration:none;">
+                    <a href="{{url('/blog-page/'.$post->slug)}}" style="text-decoration:none;">
                         <b>{{$post->title}}</b>
                     </a>
                 </h3>
@@ -26,7 +26,7 @@ Mój blog
                 <div class="w3-row">
                     <div class="w3-col m8 s12">
                         <p>
-                            <a href="{{url('/'.$post->slug)}}" class="w3-button w3-padding-large w3-white w3-border">
+                            <a href="{{url('/blog-page/'.$post->slug)}}" class="w3-button w3-padding-large w3-white w3-border">
                                 <b>{{trans('front.post_read_more_btn')}}</b>
                             </a>
                         </p>
