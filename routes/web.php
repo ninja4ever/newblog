@@ -18,7 +18,7 @@ Route::paginate('/', 'FrontController@index');
 Route::paginate('/category/{slug}', 'FrontController@category');
 Route::get('/{slug}', 'FrontController@single');
 Route::post('/search', 'FrontController@search');
-Route::get('/search-result/{keyword}', 'FrontController@search_result');
+Route::paginate('/search-result/{keyword}', 'FrontController@search_result');
 
 Auth::routes();
 

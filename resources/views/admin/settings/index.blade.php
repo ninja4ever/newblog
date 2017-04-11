@@ -20,7 +20,6 @@
                 @foreach ($settings as $index => $setting)
                     <tr>
                       <td data-title="{{trans('messages.settings_table_header_name')}}">{{$setting->name}}</td>
-
                       <td data-title="{{trans('messages.settings_table_header_value')}}" class="table-text">
                             @if($setting->type == 'string')
                             <input type="text" class="form-control" name="setting[{{$setting->id}}][value]" value="{{$setting->value}}">

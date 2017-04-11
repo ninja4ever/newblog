@@ -8,6 +8,8 @@
     'search_placeholder'=>'Wpisz tekst do wyszukania',
     'latest_posts_title'=>'Ostatnie wpisy',
     'category_title'=>'Kategorie',
+    'no_result'=>'Brak wyników',
+    'no_result_search' => 'Brak wyników wyszukania',
   ];
 
 ?>
