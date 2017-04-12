@@ -46,7 +46,7 @@ class FrontController extends Controller
      */
     public function index()
     {
-        $posts = Post::where('active', 1)->simplePaginate($this->paginate_limit);
+        $posts = Post::with('postcategory')->where('active', 1)->simplePaginate($this->paginate_limit);
         return view('front.home', $this->variables([['name'=>'posts', 'value'=>$posts]]));
     }
 
@@ -56,8 +56,8 @@ class FrontController extends Controller
         return view('front.home', $this->variables([['name'=>'posts', 'value'=>$posts]]));
     }
 
-    public function single($slug){
-      $post = Post::where(['slug'=>$slug, 'active'=>1])->first();
+    public function single($category ,$slug){
+      $post = Post::with('postcategory')->where(['slug'=>$slug, 'active'=>1])->first();
       return view('front.single', $this->variables([['name'=>'posts', 'value'=>$post]]));
     }
 
@@ -73,10 +73,10 @@ class FrontController extends Controller
         $category = PostCategory::where('name','like', '%'.$keyword.'%')->first();
 
         if(sizeof($category)>0){
-          $posts = Post::where(['category'=> $category->id, 'active'=>1])->simplePaginate($this->paginate_limit);
+          $posts = Post::with('postcategory')->where(['category'=> $category->id, 'active'=>1])->simplePaginate($this->paginate_limit);
         }
         elseif(!$category){
-          $posts = Post::where([['title','like', '%'.$keyword.'%'], ['active',1]])->orWhere([['body','like', '%'.$keyword.'%'], ['active',1]])->simplePaginate($this->paginate_limit);
+          $posts = Post::with('postcategory')->where([['title','like', '%'.$keyword.'%'], ['active',1]])->orWhere([['body','like', '%'.$keyword.'%'], ['active',1]])->simplePaginate($this->paginate_limit);
         }
         else{
           $posts = null;
