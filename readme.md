@@ -1,18 +1,19 @@
-## used laravel 5.4
-install
+# used laravel 5.4
+##install
 
 copy files to server
 
 run command in cmd
-php artisan migrate --seed
+> php artisan migrate --seed
 
 this create database and fill with dummy data
 
-admin area
+##admin area
 
-[your address]/[folder]/public/login
+>[your address]/[folder]/public/login
+
 this is admin area
-
+>
 login: admin@admin.pl
 pass: temp123
 
