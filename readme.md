@@ -1,5 +1,5 @@
 # used laravel 5.4
-##install
+## install
 
 copy files to server
 
@@ -8,7 +8,7 @@ run command in cmd
 
 this create database and fill with dummy data
 
-##admin area
+## admin area
 
 >[your address]/[folder]/public/login
 
