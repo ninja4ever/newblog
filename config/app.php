@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 		    Collective\Html\HtmlServiceProvider::class,
         Spatie\PaginateRoute\PaginateRouteServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
     ],
 
     /*
@@ -230,6 +231,7 @@ return [
     		'Form' => Collective\Html\FormFacade::class,
     		'Html' => Collective\Html\HtmlFacade::class,
         'PaginateRoute' => Spatie\PaginateRoute\PaginateRouteFacade::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
     ],
 
