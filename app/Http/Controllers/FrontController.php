@@ -100,6 +100,7 @@ class FrontController extends Controller
     public function search_result($keyword){
         $keyword = str_replace('+', ' ', $keyword);
         $category = PostCategory::where('name','like', '%'.$keyword.'%')->first();
+        $posts = null;
         if(sizeof($category)>0){
           $posts = Post::with('postcategory')
           ->where(['category'=> $category->id, 'active'=>1])
@@ -110,9 +111,6 @@ class FrontController extends Controller
           ->where([['title','like', '%'.$keyword.'%'], ['active',1]])
           ->orWhere([['body','like', '%'.$keyword.'%'], ['active',1]])
           ->simplePaginate($this->paginate_limit);
-        }
-        else{
-          $posts = null;
         }
         return view('front.search', $this->variables([['name'=>'posts', 'value'=>$posts]]));
     }

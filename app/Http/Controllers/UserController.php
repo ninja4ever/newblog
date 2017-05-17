@@ -10,7 +10,7 @@ class UserController extends Controller
 
     /**
      * Display a listing of the resource.
-     *
+     * show users listing
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -76,7 +76,7 @@ class UserController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
+     * delete user
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -91,6 +91,11 @@ class UserController extends Controller
       abort(404);
       }
     }
+    /**
+     * change user status
+     * @param  User   $user
+     * @return \Illuminate\Http\Response
+     */
     public function changeStatus(User $user){
       if($user->id != \Auth::User()->id && \Auth::User()->role == 1){
         $us = User::find($user->id);

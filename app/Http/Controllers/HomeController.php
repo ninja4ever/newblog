@@ -18,7 +18,7 @@ class HomeController extends Controller
 
     /**
      * Show the application dashboard.
-     *
+     * show admin home page
      * @return \Illuminate\Http\Response
      */
     public function index()

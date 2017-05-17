@@ -8,7 +8,7 @@ use Validator;
 
 class PostCategoryController extends Controller
 {
-
+    // validate messages
     private $messages = [
       'name.required'=>'Nazwa kategorii postów jest wymagana.',
       'name.max'=>'Maksymalna długość nazwy kategorii postów to :max znaków.',

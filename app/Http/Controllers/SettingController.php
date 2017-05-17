@@ -11,7 +11,7 @@ class SettingController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     * show settings listing
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -32,13 +32,12 @@ class SettingController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
+     * store settings
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //dump($request);
 
         $settings = $request->setting;
         foreach ($settings as $key => $value) {

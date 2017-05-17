@@ -11,6 +11,7 @@ use File;
 
 class PostController extends Controller
 {
+    // messages used in validate
     private $messages = [
        'title.required' => 'Pole tytułu jest wymagane',
        'title.unique' => 'Tytuł postu jest już w bazie',
@@ -22,8 +23,8 @@ class PostController extends Controller
        'active.required'=>'Zaznaczenie pola jest wymagane',
        'category.required'=>'Zaznaczenie pola kategorii jest wymagane',
        'image.required' => 'Obrazek obiektu jest wymagany',
-        'image.mimes' => 'Dozwolone są tylko pliki jpeg, jpg, png',
-        'image.max' => 'Maksymalny rozmiar pliku to :max kb',
+       'image.mimes' => 'Dozwolone są tylko pliki jpeg, jpg, png',
+       'image.max' => 'Maksymalny rozmiar pliku to :max kb',
      ];
     /**
      * Create a new controller instance.
@@ -36,7 +37,7 @@ class PostController extends Controller
     }
     /**
      * Display a listing of the resource.
-     *
+     * show post listing
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -47,7 +48,7 @@ class PostController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
+     * show create post form
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -58,7 +59,7 @@ class PostController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
+     * add post
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -113,7 +114,7 @@ class PostController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
+     * show post
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -126,7 +127,7 @@ class PostController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
+     * update post
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -151,46 +152,46 @@ class PostController extends Controller
                ->withInput()
                ->withErrors($validator);
       }
-       $fileName = '';
-       if($image){
-         File::delete('uploads/posts-image/'.$post->image);
-         $extension = $image->getClientOriginalExtension(); // getting image extension
-         $fileName = md5(date('Y-m-d H:i:s:u')).rand(11111,99999).'.'.$extension; // renameing image
-         $image->move('uploads/posts-image/', $fileName);
-         $post->image = $fileName;
-       }
+      $fileName = '';
+      if($image){
+       File::delete('uploads/posts-image/'.$post->image);
+       $extension = $image->getClientOriginalExtension(); // getting image extension
+       $fileName = md5(date('Y-m-d H:i:s:u')).rand(11111,99999).'.'.$extension; // renameing image
+       $image->move('uploads/posts-image/', $fileName);
+       $post->image = $fileName;
+      }
 
-        $post->title = $request->title;
-        $post->body = $request->body;
-        $post->updated_at = date('Y-m-d H:i:s');
-        $post->slug = str_slug($request->slug, '-');
-        $post->category = $request->category;
-        $post->excerpt = Str::words($request->body);
-        $post->active = $request->active;
+      $post->title = $request->title;
+      $post->body = $request->body;
+      $post->updated_at = date('Y-m-d H:i:s');
+      $post->slug = str_slug($request->slug, '-');
+      $post->category = $request->category;
+      $post->excerpt = Str::words($request->body);
+      $post->active = $request->active;
 
-        $post->update();
+      $post->update();
 
-       \Session::flash('alert-success', trans('messages.post_update_message_success_update'));
-       return redirect('/posts');
+      \Session::flash('alert-success', trans('messages.post_update_message_success_update'));
+      return redirect('/posts');
     }
 
     /**
      * Remove the specified resource from storage.
-     *
+     * remove post
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request, Post $post)
     {
        File::delete('uploads/posts-image/'.$post->image);
-      $post->delete();
-      \Session::flash('alert-success', trans('messages.post_message_delete'));
-      return redirect('/posts');
+       $post->delete();
+       \Session::flash('alert-success', trans('messages.post_message_delete'));
+       return redirect('/posts');
     }
 
     /**
      * publish the specified resource from storage.
-     *
+     * publish post
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
