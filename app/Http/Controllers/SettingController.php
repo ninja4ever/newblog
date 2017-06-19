@@ -61,7 +61,7 @@ class SettingController extends Controller
             $setting->value = $value['value'];
             $setting->update();
           }
-          if($value['type'] == 'image' && $request->setting[$value['id']]['value']){
+          if($value['type'] == 'image' && isset($settings[$value['id']]['value'])){
             File::delete('uploads/settings/'.$setting->value);
             $image = $request->setting[$value['id']]['value'];
             if($image){
@@ -75,7 +75,7 @@ class SettingController extends Controller
           }
         }
         \Session::flash('alert-success', trans('messages.settins_update_message_success_update'));
-        return redirect('/settings');
+        return redirect('/admin/settings');
     }
 
     /**

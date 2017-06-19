@@ -6,7 +6,7 @@
     <div class="panel-heading">{{trans('messages.post_category_edit_panel_title')}} {{$cpost->name}}</div>
     <div class="panel-body">
       <!-- <form> -->
-      {{ Form::model($cpost, ['url'=>'/post-category/'.$cpost->id.'/update', 'class'=>'form-horizontal', 'method'=>'post']) }}
+      {{ Form::model($cpost, ['url'=>'/admin/post-category/'.$cpost->id.'/update', 'class'=>'form-horizontal', 'method'=>'post']) }}
             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                 {!! Form::label('name', trans('messages.post_category_name_label'), ['class' => 'col-md-4 control-label']) !!}
                 <div class="col-md-6">

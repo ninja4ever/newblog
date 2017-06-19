@@ -4,7 +4,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">{{trans('messages.page_panel_title')}}</div>
     <div class="panel-body">
-      {!! Form::model($page,['url' => '/pages/update/'.$page->id, 'method' => 'post', 'class'=>'form-horizontal', 'files'=>true]) !!}
+      {!! Form::model($page,['url' => '/admin/pages/update/'.$page->id, 'method' => 'post', 'class'=>'form-horizontal', 'files'=>true]) !!}
                 {{ method_field('PATCH') }}
             <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
                 {!! Form::label('title', trans('messages.page_title_label'), ['class' => 'col-md-4 control-label']) !!}

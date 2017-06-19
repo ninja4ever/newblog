@@ -59,7 +59,7 @@ class PostCategoryController extends Controller
 
       if ($validator->fails()) {
         \Session::flash('alert-warning', trans('messages.post_category_warning_message'));
-          return redirect('/post-category/add')
+          return redirect('/admin/post-category/add')
               ->withInput()
               ->withErrors($validator);
       }
@@ -69,7 +69,7 @@ class PostCategoryController extends Controller
       ]);
 
       \Session::flash('alert-success', trans('messages.post_category_message_add'));
-      return redirect('/post-category');
+      return redirect('/admin/post-category');
     }
 
     /**
@@ -112,7 +112,7 @@ class PostCategoryController extends Controller
 
       if ($validator->fails()) {
         \Session::flash('alert-warning', trans('messages.post_category_warning_message'));
-          return redirect('/post-category/edit/'.$id)
+          return redirect('/admin/post-category/edit/'.$id)
               ->withInput()
               ->withErrors($validator);
       }
@@ -121,7 +121,7 @@ class PostCategoryController extends Controller
       $cpost->slug = str_slug($request->name, '-');
       $cpost->update();
       \Session::flash('alert-success', trans('messages.post_category_message_update'));
-      return redirect('/post-category');
+      return redirect('/admin/post-category');
     }
 
     /**
@@ -133,6 +133,6 @@ class PostCategoryController extends Controller
     public function destroy(Request $request, PostCategory $cpost){
       $cpost->delete();
       \Session::flash('alert-success', trans('messages.post_category_message_delete'));
-      return redirect('/post-category');
+      return redirect('/admin/post-category');
     }
 }

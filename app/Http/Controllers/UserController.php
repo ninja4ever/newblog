@@ -43,12 +43,12 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        return view('admin.users.profile');
     }
 
     /**
@@ -85,7 +85,7 @@ class UserController extends Controller
       if($user->id != \Auth::User()->id && \Auth::User()->role == 1){
         $user->delete();
         \Session::flash('alert-success', trans('messages.user_message_success_delete'));
-        return redirect('/users');
+        return redirect('/admin/users');
       }
       else {
       abort(404);
@@ -109,9 +109,9 @@ class UserController extends Controller
         }
         $us->update();
          \Session::flash('alert-success', trans('messages.user_message_change_status_success'));
-         return redirect('/users');
+         return redirect('/admin/users');
       }
       \Session::flash('alert-danger', trans('messages.user_message_change_status_error'));
-      return redirect('/users');
+      return redirect('/admin/users');
   }
 }

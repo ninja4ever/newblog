@@ -40,7 +40,7 @@
                              <ul class="list-inline">
                                <li>
                                  @if ($page->active != 1)
-                          <form action="{{url('/pages/publish/'.$page->id)}}" method="POST">
+                          <form action="{{url('/admin/pages/publish/'.$page->id)}}" method="POST">
                               {{ csrf_field() }}
                               <input type="hidden" name="active" value="1">
                               <button type="submit" class="btn btn-success">
@@ -52,14 +52,14 @@
                           @endif
                         </li>
                         <li>
-                          <form action="{{url('/pages/edit/'.$page->id)}}" method="GET">
+                          <form action="{{url('/admin/pages/edit/'.$page->id)}}" method="GET">
                               <button type="submit" class="btn btn-warning">
                                   <i class="fa fa-pencil"></i> {{trans('messages.page_edit_btn')}}
                               </button>
                           </form>
                         </li>
                         <li>
-                          <form action="{{url('/pages/delete/'.$page->id)}}" method="POST">
+                          <form action="{{url('/admin/pages/delete/'.$page->id)}}" method="POST">
                               {{ csrf_field() }}
                               {{ method_field('DELETE') }}
                               <button type="submit" class="btn btn-danger delete-confirm">

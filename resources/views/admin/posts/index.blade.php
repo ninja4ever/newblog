@@ -42,7 +42,7 @@
                              <ul class="list-inline">
                                <li>
                                  @if ($post->active != 1)
-                          <form action="{{url('/post/publish/'.$post->id)}}" method="POST">
+                          <form action="{{url('/admin/post/publish/'.$post->id)}}" method="POST">
                               {{ csrf_field() }}
                               <input type="hidden" name="active" value="1">
                               <button type="submit" class="btn btn-success">
@@ -54,14 +54,14 @@
                           @endif
                         </li>
                         <li>
-                          <form action="{{url('/post/edit/'.$post->id)}}" method="GET">
+                          <form action="{{url('/admin/post/edit/'.$post->id)}}" method="GET">
                               <button type="submit" class="btn btn-warning">
                                   <i class="fa fa-pencil"></i> {{trans('messages.post_edit_btn')}}
                               </button>
                           </form>
                         </li>
                         <li>
-                          <form action="{{url('/post/delete/'.$post->id)}}" method="POST">
+                          <form action="{{url('/admin/post/delete/'.$post->id)}}" method="POST">
                               {{ csrf_field() }}
                               {{ method_field('DELETE') }}
                               <button type="submit" class="btn btn-danger delete-confirm">

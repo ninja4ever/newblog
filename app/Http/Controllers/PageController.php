@@ -72,7 +72,7 @@ class PageController extends Controller
        ], $this->messages);
        if ($validator->fails()) {
          \Session::flash('alert-warning', trans('messages.page_add_message_warning'));
-           return redirect('/pages/add')
+           return redirect('/admin/pages/add')
                ->withInput()
                ->withErrors($validator);
        }
@@ -92,7 +92,7 @@ class PageController extends Controller
          'image' => $fileName,
        ]);
        \Session::flash('alert-success', trans('messages.page_add_message_success'));
-       return redirect('/pages');
+       return redirect('/admin/pages');
     }
 
     /**
@@ -140,7 +140,7 @@ class PageController extends Controller
      ], $this->messages);
      if ($validator->fails()) {
        \Session::flash('alert-warning', trans('messages.page_add_message_warning'));
-         return redirect('/pages/edit/'.$id)
+         return redirect('/admin/pages/edit/'.$id)
              ->withInput()
              ->withErrors($validator);
      }
@@ -162,7 +162,7 @@ class PageController extends Controller
       $page->update();
 
      \Session::flash('alert-success', trans('messages.page_update_message_success_update'));
-     return redirect('/pages');
+     return redirect('/admin/pages');
     }
 
     /**
@@ -176,7 +176,7 @@ class PageController extends Controller
       File::delete('uploads/pages-image/'.$page->image);
       $page->delete();
       \Session::flash('alert-success', trans('messages.page_message_delete'));
-      return redirect('/pages');
+      return redirect('/admin/pages');
     }
 
     /**
@@ -190,6 +190,6 @@ class PageController extends Controller
       $page->updated_at = date('Y-m-d H:i:s');
       $page->update();
       \Session::flash('alert-success', trans('messages.page_update_message_success'));
-      return redirect('/pages');
+      return redirect('/admin/pages');
     }
 }

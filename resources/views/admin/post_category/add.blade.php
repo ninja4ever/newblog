@@ -6,7 +6,7 @@
     <div class="panel-heading">{{trans('messages.post_category_panel_add_title')}}</div>
     <div class="panel-body">
       <!-- <form> -->
-      {!! Form::open(['url' => '/post-category/store', 'method' => 'post', 'class'=>'form-horizontal']) !!}
+      {!! Form::open(['url' => '/admin/post-category/store', 'method' => 'post', 'class'=>'form-horizontal']) !!}
             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                 {!! Form::label('name', trans('messages.post_category_name_label'), ['class' => 'col-md-4 control-label']) !!}
                 <div class="col-md-6">

@@ -4,7 +4,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">{{trans('messages.user_panel_title_add')}}</div>
     <div class="panel-body">
-            {!! Form::open(['url' => '/register', 'method' => 'post', 'class'=>'form-horizontal']) !!}
+            {!! Form::open(['url' => '/admin/register', 'method' => 'post', 'class'=>'form-horizontal']) !!}
             <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                   {!! Form::label('name', trans('messages.user_name_label'), ['class' => 'col-md-4 control-label']) !!}
                 <div class="col-md-6">

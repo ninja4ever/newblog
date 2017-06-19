@@ -76,7 +76,7 @@ class PostController extends Controller
        ], $this->messages);
        if ($validator->fails()) {
          \Session::flash('alert-warning', trans('messages.post_add_message_warning'));
-           return redirect('/post/add')
+           return redirect('/admin/post/add')
                ->withInput()
                ->withErrors($validator);
        }
@@ -98,7 +98,7 @@ class PostController extends Controller
          'user_id' =>\Auth::User()->id,
        ]);
        \Session::flash('alert-success', trans('messages.post_add_message_success'));
-       return redirect('/posts');
+       return redirect('/admin/posts');
     }
 
     /**
@@ -148,7 +148,7 @@ class PostController extends Controller
        ], $this->messages);
       if ($validator->fails()) {
          \Session::flash('alert-warning', trans('messages.post_add_message_warning'));
-           return redirect('/post/edit/'.$id)
+           return redirect('/admin/post/edit/'.$id)
                ->withInput()
                ->withErrors($validator);
       }
@@ -172,7 +172,7 @@ class PostController extends Controller
       $post->update();
 
       \Session::flash('alert-success', trans('messages.post_update_message_success_update'));
-      return redirect('/posts');
+      return redirect('/admin/posts');
     }
 
     /**
@@ -186,7 +186,7 @@ class PostController extends Controller
        File::delete('uploads/posts-image/'.$post->image);
        $post->delete();
        \Session::flash('alert-success', trans('messages.post_message_delete'));
-       return redirect('/posts');
+       return redirect('/admin/posts');
     }
 
     /**
@@ -201,7 +201,7 @@ class PostController extends Controller
       $post->updated_at = date('Y-m-d H:i:s');
       $post->update();
       \Session::flash('alert-success', trans('messages.post_update_message_success'));
-      return redirect('/posts');
+      return redirect('/admin/posts');
     }
 
 }

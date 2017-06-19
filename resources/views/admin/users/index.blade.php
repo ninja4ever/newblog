@@ -2,7 +2,7 @@
 
 @section('content')
 <ul class="list-inline" style="padding-bottom:10px;">
-  <li role="presentation"><a class="btn btn-success" href="{{url('/users/add')}}">Dodaj</a></li>
+  <li role="presentation"><a class="btn btn-success" href="{{url('/admin/users/add')}}">Dodaj</a></li>
 
 </ul>
 <div class="panel panel-default">
@@ -28,7 +28,7 @@
 
                       @if($user->active == 1 && ($user->id != Auth::user()->id))
 
-                          <form action="{{url('/users/change-status/'.$user->id)}}" method="POST">
+                          <form action="{{url('/admin/users/change-status/'.$user->id)}}" method="POST">
                               {{ csrf_field() }}
                               {{ method_field('PATCH') }}
 
@@ -39,7 +39,7 @@
 
                       @elseif ($user->active == 0 && ($user->id != Auth::user()->id))
 
-                          <form action="{{url('/users/change-status/'.$user->id)}}" method="POST">
+                          <form action="{{url('/admin/users/change-status/'.$user->id)}}" method="POST">
                               {{ csrf_field() }}
                               {{ method_field('PATCH') }}
                               <button type="submit" class="btn btn-warning">
@@ -57,7 +57,7 @@
                     <td data-title="{{trans('messages.user_table_header_user_role')}}">@if($user->role == 1) {{trans('messages.user_role_admin')}} @else {{trans('messages.user_role_user')}} @endif</td>
                     <td data-title="{{trans('messages.user_table_header_actions')}}">
                         @if($user->id != Auth::user()->id)
-                        <form action="{{url('/users/delete/'.$user->id)}}" method="POST">
+                        <form action="{{url('/admin/users/delete/'.$user->id)}}" method="POST">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
 

@@ -18,8 +18,8 @@ Route::paginate('/', 'FrontController@index');
 Route::paginate('/category/{slug}', 'FrontController@category');
 Route::post('/search', 'FrontController@search');
 Route::paginate('/search-result/{keyword}', 'FrontController@search_result');
-Route::get('/{category}/{slug}', 'FrontController@single');
-
+Route::get('/single/{category}/{slug}', 'FrontController@single');
+Route::prefix('/admin')->group(function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
@@ -50,6 +50,8 @@ Route::get('/users', 'UserController@index');
 Route::get('/users/add', 'UserController@create');
 Route::patch('/users/change-status/{user}', 'UserController@changeStatus');
 Route::delete('/users/delete/{user}', 'UserController@destroy');
+Route::get('/users/user-profile', 'UserController@show');
 
 Route::get('/settings', 'SettingController@index');
 Route::post('/settings/store', 'SettingController@store');
+});

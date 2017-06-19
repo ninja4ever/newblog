@@ -4,7 +4,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">{{trans('messages.page_panel_title')}}</div>
     <div class="panel-body">
-      {!! Form::open(['url' => '/pages/store', 'method' => 'post', 'class'=>'form-horizontal', 'files'=>true]) !!}
+      {!! Form::open(['url' => '/admin/pages/store', 'method' => 'post', 'class'=>'form-horizontal', 'files'=>true]) !!}
             <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
                 {!! Form::label('title', trans('messages.page_title_label'), ['class' => 'col-md-4 control-label']) !!}
                 <div class="col-md-6">

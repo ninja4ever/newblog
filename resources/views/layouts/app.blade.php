@@ -52,17 +52,17 @@
                             <ul class="dropdown-menu" role="menu">
                               <li class="dropdown-header">Wpisy</li>
                               <li>
-                                  <a href="{{ url('/posts')}}">Zobacz</a>
+                                  <a href="{{ url('/admin/posts')}}">Zobacz</a>
                               </li>
                               <li>
-                                  <a href="{{url('/post/add')}}">Dodaj</a>
+                                  <a href="{{url('/admin/post/add')}}">Dodaj</a>
                               </li>
                               <li class="dropdown-header">Kategorie</li>
                                 <li>
-                                    <a href="{{ url('/post-category')}}">Zobacz</a>
+                                    <a href="{{ url('/admin/post-category')}}">Zobacz</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('/post-category/add')}}">Dodaj</a>
+                                    <a href="{{url('/admin/post-category/add')}}">Dodaj</a>
                                 </li>
                             </ul>
                         </li>
@@ -74,10 +74,10 @@
                             <ul class="dropdown-menu" role="menu">
                               <li class="dropdown-header">strony</li>
                               <li>
-                                  <a href="{{url('/pages')}}">Zobacz</a>
+                                  <a href="{{url('/admin/pages')}}">Zobacz</a>
                               </li>
                               <li>
-                                  <a href="{{url('/pages/add')}}">Dodaj</a>
+                                  <a href="{{url('/admin/pages/add')}}">Dodaj</a>
                               </li>
 
                             </ul>
@@ -100,13 +100,13 @@
                                 <ul class="dropdown-menu" role="menu">
 
                                   <li>
-                                      <a href="{{url('/settings')}}">ustawnienia</a>
+                                      <a href="{{url('/admin/settings')}}">ustawnienia</a>
                                   </li>
                                   <li>
-                                      <a href="{{url('/users')}}">użytkownicy</a>
+                                      <a href="{{url('/admin/users')}}">użytkownicy</a>
                                   </li>
                                   <li>
-                                      <a href="#">profil</a>
+                                      <a href="{{url('/admin/users/user-profile')}}">profil</a>
                                   </li>
                                     <li>
                                         <a href="{{ route('logout') }}"

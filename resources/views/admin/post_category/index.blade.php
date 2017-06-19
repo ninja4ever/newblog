@@ -32,14 +32,14 @@
                           @if ( $cpost->id > 1)
                           <ul class="list-inline">
                             <li>
-                              <form action="{{url('/post-category/edit/'. $cpost->id)}}" method="GET">
+                              <form action="{{url('/admin/post-category/edit/'. $cpost->id)}}" method="GET">
                                 <button type="submit" class="btn btn-warning">
                                     <i class="fa fa-pencil"></i> {{trans('messages.post_category_edit_btn')}}
                                 </button>
                               </form>
                             </li>
                             <li>
-                              <form action="{{url('/post-category/delete/'. $cpost->id)}}" method="POST">
+                              <form action="{{url('/admin/post-category/delete/'. $cpost->id)}}" method="POST">
                                   {{ csrf_field() }}
                                   {{ method_field('DELETE') }}
                                   <button type="submit" class="btn btn-danger delete-confirm">

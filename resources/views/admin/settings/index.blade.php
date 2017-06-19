@@ -6,7 +6,7 @@
         {{ trans('messages.settings_panel_title') }}
     </div>
     <div class="panel-body">
-      {!! Form::open(['url' => '/settings/store', 'method' => 'post', 'class'=>'form-horizontal', 'files'=>true]) !!}
+      {!! Form::open(['url' => '/admin/settings/store', 'method' => 'post', 'class'=>'form-horizontal', 'files'=>true]) !!}
       <div id="no-more-tables">
         <table class="table table-striped task-table table-hover">
             <!-- Table Headings -->
